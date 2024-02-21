@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button feedButton;
     [SerializeField] private Button restButton;
+    [SerializeField] private ParticleSystem heartParticleSystem;
     private bool drain;
     private Pet currentPet;
     // Start is called before the first frame update
@@ -77,9 +78,9 @@ public class GameManager : MonoBehaviour
 
     void StatDrain()
     {
-        currentPet.Eat(-1.0f*Time.deltaTime);
-        currentPet.Play(-1.5f*Time.deltaTime);
-        currentPet.Rest(-0.5f*Time.deltaTime);
+        currentPet.Eat(-5.0f*Time.deltaTime);
+        currentPet.Play(-12.0f*Time.deltaTime);
+        currentPet.Rest(-3.0f*Time.deltaTime);
         DisplayStats();
     }
 
@@ -87,15 +88,19 @@ public class GameManager : MonoBehaviour
     {
         currentPet.Play(5.0f);
         currentPet.Rest(-1.0f);
+        currentPet.Eat(-0.5f);
+        heartParticleSystem.Play();
     }
 
     void FeedPet()
     {
         currentPet.Eat(5.0f);
+        currentPet.Rest(0.5f);
     }
 
     void PetRests()
     {
-        currentPet.Rest(5.0f);
+        currentPet.Rest(7.0f);
+        currentPet.Play(-0.5f);
     }
 }
