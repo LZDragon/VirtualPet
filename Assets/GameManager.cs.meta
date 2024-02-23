@@ -3,7 +3,19 @@ guid: cf4e741bebe05a5409792246fe20e1fe
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - newPetPanel: {instanceID: 0}
+  - petNameInput: {instanceID: 0}
+  - submitButton: {instanceID: 0}
+  - petNameText: {instanceID: 0}
+  - happinessSlider: {instanceID: 0}
+  - hungerSlider: {instanceID: 0}
+  - energySlider: {instanceID: 0}
+  - playButton: {instanceID: 0}
+  - feedButton: {instanceID: 0}
+  - restButton: {instanceID: 0}
+  - heartParticleSystem: {instanceID: 0}
+  - currentDifficulty: {fileID: 11400000, guid: 3f8d60b37588ede40bc0ac8e158b0955, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

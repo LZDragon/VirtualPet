@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Slider = UnityEngine.UI.Slider;
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button feedButton;
     [SerializeField] private Button restButton;
     [SerializeField] private ParticleSystem heartParticleSystem;
+    [SerializeField] private ParticleSystem foodParticleSystem;
+    [SerializeField] private ParticleSystem energyParticleSystem;
     private bool drain;
     private Pet currentPet;
     // Start is called before the first frame update
@@ -30,8 +33,7 @@ public class GameManager : MonoBehaviour
         newPetPanel.SetActive(true);
         submitButton.onClick.AddListener(EvaluateInput);
         
-        
-        
+
     }
 
     // Update is called once per frame
@@ -82,6 +84,10 @@ public class GameManager : MonoBehaviour
         currentPet.Play(-12.0f*Time.deltaTime);
         currentPet.Rest(-3.0f*Time.deltaTime);
         DisplayStats();
+        if (currentPet.Happiness == 0.0f || currentPet.Fullness == 0.0f || currentPet.EnergyLevel == 0.0f)
+        {
+            LoadLoseScreen();
+        }
     }
 
     void PlayWithPet()
@@ -96,11 +102,18 @@ public class GameManager : MonoBehaviour
     {
         currentPet.Eat(5.0f);
         currentPet.Rest(0.5f);
+        foodParticleSystem.Play();
     }
 
     void PetRests()
     {
         currentPet.Rest(7.0f);
         currentPet.Play(-0.5f);
+        energyParticleSystem.Play();
+    }
+
+    void LoadLoseScreen()
+    {
+        SceneManager.LoadScene(2);
     }
 }
