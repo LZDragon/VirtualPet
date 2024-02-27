@@ -57,10 +57,7 @@ public class GameManager : MonoBehaviour
             drain = true;
             AddStatButtonListeners();
         }
-        else
-        {
-            //Todo:Display error
-        }
+
     }
 
     void AddStatButtonListeners()
