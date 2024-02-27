@@ -1,3 +1,10 @@
+//////////////////////////////////////////////
+//Assignment/Lab/Project: Virtual Pet
+//Name: Eliza Majernik
+//Section: SGD.213.2172
+//Instructor: Brian Sowers
+//Date: 02/26/2024
+/////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
